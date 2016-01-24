@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>M name:</strong>
+  <%= @manipulator.m_name %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @manipulator.password %>
+</p>
+
+<p>
+  <strong>M type:</strong>
+  <%= @manipulator.m_type %>
+</p>
+
+<%= link_to 'Edit', edit_manipulator_path(@manipulator) %> |
+<%= link_to 'Back', login_manipulators_path %>

@@ -1,0 +1,5 @@
+class Addcolum < ActiveRecord::Migration
+  def change
+  add_reference :item,:shoppinglist
+  end
+end

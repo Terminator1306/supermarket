@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Manipulators</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>M name</th>
+      <th>Password</th>
+      <th>M type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @manipulators.each do |manipulator| %>
+      <tr>
+        <td><%= manipulator.m_name %></td>
+        <td><%= manipulator.password %></td>
+        <td><%= manipulator.m_type %></td>
+        <td><%= link_to 'Show', manipulator %></td>
+        <td><%= link_to 'Edit', edit_manipulator_path(manipulator) %></td>
+        <td><%= link_to 'Destroy', manipulator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Manipulator', new_manipulator_path %>

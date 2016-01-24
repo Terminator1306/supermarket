@@ -1,0 +1,14 @@
+class CreateProducts < ActiveRecord::Migration
+  def change
+    create_table :products do |t|
+      t.string :p_name 
+      t.string :description
+      t.float:price 
+      t.integer :quantity
+      validates :p_name,presence:{message:'blank is not allowed'}
+      validates :price,presence:{message:'blank is not allowed'}
+      validates :quantity,numericality:{allow_nil: false,greater_than: 0}
+      t.timestamps null: false
+    end
+  end
+end

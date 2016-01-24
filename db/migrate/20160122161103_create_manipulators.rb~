@@ -1,0 +1,11 @@
+class CreateManipulators < ActiveRecord::Migration
+  def change
+    create_table :manipulators do |t|
+      t.string :m_name null:false
+      t.string :password null:false
+      t.integer :m_type null:false
+      
+      t.timestamps null: false
+    end
+  end
+end

@@ -1,0 +1,4 @@
+class Itemsshoppinglistsrelation < ActiveRecord::Migration
+  def change
+  end
+end

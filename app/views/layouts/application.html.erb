@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Supermarket</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="banner">
+<h1>Supermarket</h1>
+</div>
+<div id="left-panel">
+<%unless current_user.nil?%>
+	<div><%= link_to 'Products', products_path %></div>
+	<div><%= link_to 'Shoppinglists', shoppinglists_path %></div>
+	<div><%=link_to 'logout',logout_manipulators_path%></div>
+<%end%>
+
+</div>
+
+<div id="main-panel">
+<%= yield %>
+</div>
+
+<div id="footer">
+Copyright yh &copy; 2016
+</div>
+
+
+</body>
+</html>

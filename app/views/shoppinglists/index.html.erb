@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Shoppinglists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Total</th>
+      <th>Time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%unless @shoppinglists.nil?%>
+    <% @shoppinglists.each do |shoppinglist| %>
+      <tr>
+        <td><%= shoppinglist.total %></td>
+        <td><%= shoppinglist.time %></td>
+        <td><%= link_to 'Show', shoppinglist %></td>
+        <td><%= link_to 'Destroy', shoppinglist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    <%end%>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Shoppinglist', new_shoppinglist_path %>

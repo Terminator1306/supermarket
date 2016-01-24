@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @shoppinglist.total %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @shoppinglist.time %>
+</p>
+
+<h1>Items</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |i| %>
+    <% unless i.id.nil?%>
+      <tr>
+        <td><%= i.getp_name %></td>
+        <td><%= i.quantity %></td>
+        <td><%= link_to 'Edit', edit_item_path(i.getitem) %></td>
+        <td><%= link_to 'Destroy', i.getitem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <%end%>
+    <% end %>
+  </tbody>
+</table>
+ 
+<h2>Add a Item:</h2>
+<%= form_for [@shoppinglist,@item] do |f| %>
+  <div class="field">
+    <%= f.label :product_id %><br>
+   <%= f.select :product_id, options_from_collection_for_select(@products, "id", "p_name"), prompt: "select a product" %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br>
+    <%= f.text_field :quantity %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,6 @@
+<h1>Editing Manipulator</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @manipulator %> |
+<%= link_to 'Back', login_manipulators_path %>

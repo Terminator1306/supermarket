@@ -1,0 +1,15 @@
+class CreateItems < ActiveRecord::Migration
+  def change
+    create_table :items do |t|
+      t.integer :product_id
+      t.integer :quantity
+
+      t.references:shoppinglist,index:true
+      t.timestamps null: false
+      validates :product_id,presence:{message:'blank is not allowed'}
+      validates :quantity,presence:{message:'blank is not allowed'}
+      validates :quantity,numericality:{allow_nil: false,greater_than:0}
+      
+    end
+  end
+end
